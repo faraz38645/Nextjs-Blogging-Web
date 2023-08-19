@@ -2,13 +2,13 @@
 import Form from "@/components/auth/form";
 
 export default function SignUp() {
-    const onSubmit = async (heading ,description) =>{
+    const onSubmit = async (mail,pass,fname,lname) =>{
 
         try{
-            const response = await fetch('/api/auth/blog',{
+            const response = await fetch('/api/auth/signup',{
                 method: 'POST',
                 headers: {'Content-Type': 'application/json'},
-                body: JSON.stringify({heading ,description})
+                body: JSON.stringify({mail,pass,fname,lname})
             })  
 
             if(response.ok){
@@ -24,7 +24,3 @@ export default function SignUp() {
 
     return <Form signin={false} onFormSubmit={onSubmit}/>
 };
-
-// body: JSON.stringify(["okay","123"])
-// body: JSON.stringify({mail , pass})
-//body: JSON.stringify({mail , pass})
